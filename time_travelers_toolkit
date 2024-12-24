@@ -1,0 +1,37 @@
+import datetime as dt
+from decimal import Decimal
+from random import randint
+from random import choice
+import custom_module as cm
+
+current_time = dt.datetime.now().time()
+current_date = dt.date.today()
+
+current_year = current_date.year
+target_year = randint(1000, 5001)
+
+# print(current_year, target_year)
+
+current_date = dt.date.today()
+formatted_date = current_date.strftime("%B %d, %Y") 
+
+print(f"Current Date: {formatted_date}")
+print(f"Current Time: {current_time.hour}:{current_time.minute}")
+
+base_cost = Decimal('1000.00')
+year_difference = abs(current_year - target_year)
+final_cost = base_cost + (base_cost * Decimal(year_difference))
+
+# print(base_cost, year_difference, final_cost)
+
+destinations = ["Ancient Greece", "Ancient Rome", "Future Mars Colony", "Ancient Egypt", "Gold Rush California", "Medieval France"]
+
+selected_destination = choice(destinations)
+
+print(f"Selected Destination: {selected_destination}")
+
+message = cm.generate_time_travel_message(target_year, selected_destination, final_cost)
+
+print(message)
+
+
